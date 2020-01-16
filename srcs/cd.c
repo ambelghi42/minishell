@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 20:29:31 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/13 13:25:07 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/01/16 19:54:41 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	cd_oldpwd(t_env_list *env, char *params, char **path)
 		else
 			ft_putendl(*path);
 	}
-	else if (!(get_env(env, "HOME")))
+	else if ((!params || !*params) && !(get_env(env, "HOME")))
 		ft_putstr_fd("cd: HOME not set\n", 2);
 }
 
@@ -43,11 +43,11 @@ int		cd_builtin(char **params, t_env_list *env)
 		path = (!params[i] || !*params[i] ? get_env(env, "HOME") : params[i]);
 		cd_oldpwd(env, params[i], &path);
 		old_pwd = getcwd(NULL, 0);
-		if (path && chdir(path) < 0)
+		if (path && *path && chdir(path) < 0)
 			cd_errors(path);
-		else if (path && *path)
+		if (path && *path)
 			set_cdpwd(env, old_pwd);
-		else
+		if (!path)
 			ft_strdel(&old_pwd);
 	}
 	return (0);
