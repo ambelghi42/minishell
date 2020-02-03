@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:02:01 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/10 20:25:36 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/02/03 21:06:31 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char			*ft_strimoc(char const *s, char oc);
 char			*ft_strdchr(char const *s, int c);
 t_double_list	*ft_d_lstnew2(void *content);
 int				ft_d_lstcount(t_double_list *elem);
-char			**ft_tabdup(char **tab);
+char			**ft_tabdup(char **t);
 int				is_strdigit(char *s);
 int				ft_strcheck(char const *s, char *oc);
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_started.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 13:21:45 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/10 19:45:52 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/02/03 21:30:02 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "libft.h"
 #include "minishell.h"
 #include <signal.h>
+#include "ft_select.h"
 
 void	msh_level(t_env_list *list)
 {
@@ -38,7 +39,7 @@ int		read_me(t_env_list *list)
 	while (i)
 	{
 		ft_putstr_fd("minishell-1.0$ ", ttyslot());
-		if ((i = get_next_line(ttyslot(), &line)) == -1)
+		if (!(line = ft_prompt()))
 			exit(EXIT_FAILURE);
 		if ((params = get_params(line, list)))
 		{

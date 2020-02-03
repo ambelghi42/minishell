@@ -6,7 +6,7 @@
 #    By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 14:50:28 by ambelghi          #+#    #+#              #
-#    Updated: 2020/01/16 19:28:34 by ambelghi         ###   ########.fr        #
+#    Updated: 2020/02/03 21:06:57 by ambelghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ WHITE=\033[0;37m
 CC = Clang
 COMPILE = $(CC) -c
 
-MKDIR = mkdir -p
+MKDIR = mkdir -p obj/line_edition
 CLEANUP = rm -rf
 
 WFLAGS = -Wall -Werror -Wextra
@@ -59,6 +59,17 @@ SRCS += cd.c
 SRCS += signal.c
 SRCS += utils2.c
 
+SRCS += line_edition/get_started.c
+SRCS += line_edition/columns.c
+SRCS += line_edition/keys.c
+SRCS += line_edition/keys2.c
+SRCS += line_edition/list.c
+SRCS += line_edition/list2.c
+SRCS += line_edition/print.c
+SRCS += line_edition/signals.c
+SRCS += line_edition/term_init.c
+SRCS += line_edition/utils.c
+SRCS += line_edition/cursor.c
 
 OBJS = $(patsubst %.c, $(PATHO)%.o, $(SRCS))
 
@@ -66,7 +77,7 @@ OBJS = $(patsubst %.c, $(PATHO)%.o, $(SRCS))
 all : $(NAME)
 
 $(NAME) : $(LIB) $(PATHO) $(OBJS)
-	$(CC) -o $@ $< $(OBJS)
+	$(CC) -lncurses -o $@ $< $(OBJS)
 	printf "$(GREEN)$@ is ready.\n$(NC)"
 
 $(OBJS) : $(PATHO)%.o : $(SPATH)%.c

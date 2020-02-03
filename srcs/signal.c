@@ -6,13 +6,14 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 19:25:38 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/10 19:46:39 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/02/03 23:48:22 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 #include "minishell.h"
+#include "ft_select.h"
 
 void	handle_sigint(int sig)
 {
@@ -20,6 +21,7 @@ void	handle_sigint(int sig)
 	{
 		if (msh_child(0, 0) == 0)
 		{
+			ft_clear(0);
 			ft_putstr_fd("\nminishell-1.0$ ", ttyslot());
 		}
 		else

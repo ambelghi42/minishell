@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:04:48 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/10 20:00:24 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/02/03 23:47:37 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char			**env_totab(t_env_list **list);
 char			*get_env(t_env_list *env, char *var);
 char			*which_path(char **path, char *exec, int i);
 char			*ft_which(char const *paths, char *exec);
-void			free_tab(char **tab);
+void			free_tab(char **t);
 void			get_expansion(char **params, t_env_list *env);
 char			*get_tilde(char *line, t_env_list *env);
 char			*get_dollar(char *line, t_env_list *env);
